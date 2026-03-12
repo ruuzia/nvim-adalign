@@ -17,15 +17,7 @@ Adalign uses the new Neovim 0.8 user command preview functionality to support pr
 ```vim
 :help adalign-neovim
 ```
-==============================================================================
-INTRODUCTION                                                  *adalign-neovim*
-
-Align lines with whitespace based on vim regexp.
-For awesome preview functionality, Adalign needs Neovim 0.8+. Specifically
-0.8.1+ is recommended due to a prior Neovim bug that could result in a crash
-while previewing.
-
-------------------------------------------------------------------------------
+```
 Align                                                                 *:Align*
 
 :[range]Align {pattern}
@@ -58,7 +50,8 @@ Yields:
 REMARK:
 You may use the |/\zs| regex atom to easily control the start position of the match.
 
-------------------------------------------------------------------------------
+```
+```
 Unalign                                                             *:Unalign*
 
 :[range]Unalign
@@ -84,3 +77,4 @@ Yields:
     y = 2
     long_variable = 3
 <
+```
