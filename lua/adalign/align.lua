@@ -15,10 +15,9 @@ function M.command(ctx)
     -- lines must exist if it's a valid range, right?
     local lines = assert(api.nvim_buf_get_lines(buffer, startline, ctx.line2, false))
 
-
-    local matches, err = adalign.get_matches(lines, ctx.args)
+    local matches, _ = adalign.get_matches(lines, ctx.args)
     if not matches then
-        return api.nvim_err_writeln(err)
+        return vim.notify("No matches.", vim.log.levels.WARN)
     end
     local inserts = adalign.get_inserts(lines, matches)
     local new_lines = adalign.apply_inserts(lines, inserts)
@@ -33,7 +32,7 @@ function M.preview(ctx, preview_ns, preview_buf)
     -- lines must exist if it's a valid range, right?
     local lines = assert(api.nvim_buf_get_lines(buffer, startline, ctx.line2, false))
 
-    local matches, err = adalign.get_matches(lines, ctx.args)
+    local matches, _ = adalign.get_matches(lines, ctx.args)
     if matches then
         local inserts = adalign.get_inserts(lines, matches)
         local new_lines = adalign.apply_inserts(lines, inserts)
